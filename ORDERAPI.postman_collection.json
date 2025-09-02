@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "a9463099-07c5-4b1f-b4a3-1450edcf01f6",
+		"name": "ORDERAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47999784"
+	},
+	"item": [
+		{
+			"name": "Causal",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/causal",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"causal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Causal API\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/causal",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"causal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/causal",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"causal"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Observation",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/observation",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"observation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"adios\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/observation",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"observation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"description\": \"hola\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/observation/4",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"observation",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/observation/6",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"observation",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TypeActivity",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/type_activity",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"type_activity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"aaaaaa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/type_activity",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"type_activity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/type_activity",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"type_activity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"description\": \"EEEEEEE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/type_activity/5",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"type_activity",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/type_activity/5",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"type_activity",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Technician",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/technician",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"technician"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": 12345,\r\n    \"name\": \"chupapichas3000\",\r\n    \"speciality\": \"chupador\",\r\n    \"phone\": \"223344\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/technician",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"technician"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": 12345,\r\n    \"name\": \"chupapichas3000\",\r\n    \"speciality\": \"chupador\",\r\n    \"phone\": \"223344\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/technician",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"technician"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/technician/7",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"technician",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Activity",
+			"item": [
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/activity",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"activity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"actividad de prueba 3\",\r\n    \"hours\": 24,\r\n    \"technician_id\": 3,\r\n    \"type_activity_id\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/activity",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"activity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"actividad de prueba 3\",\r\n    \"hours\": 24,\r\n    \"technician_id\": 3,\r\n    \"type_activity_id\": 3\r\n}"
+						},
+						"url": {
+							"raw": "{{URL_BASE}}/activity",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"activity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_BASE}}/activity/3",
+							"host": [
+								"{{URL_BASE}}"
+							],
+							"path": [
+								"activity",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

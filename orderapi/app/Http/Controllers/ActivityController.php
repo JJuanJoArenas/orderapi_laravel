@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Causal;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class CausalController extends Controller
+class ActivityController extends Controller
 {
     private $rules = [
-        'description' => 'required|string|min:3|max:100'
+        'description' => 'required|string|min:3|max:100',
+        'hours' => 'required|numeric|min:1|max:9999999999',
+        'technician_id' => 'required|numeric|min:1|max:99999999999999999999',
+        'type_activity_id' => 'required|numeric|min:1|max:99999999999999999999'
     ];
 
     private $traductionAttributes = [
-        'description' => 'descripción'
+        'description' => 'descripción',
+        'hours' => 'horas',
+        'technician_id' => 'técnico',
+        'type_activity_id' => 'tipo de actividad'
     ];
 
     /**
@@ -21,8 +27,9 @@ class CausalController extends Controller
      */
     public function index()
     {
-        $causals = Causal::all();
-        return response()->json($causals, Response::HTTP_OK);
+        $activities = Activity::all();
+        $activities->load(['technician', 'type_activity']);
+        return response()->json($activities, Response::HTTP_OK);
     }
 
     /**
@@ -36,10 +43,10 @@ class CausalController extends Controller
             return $data;
         }
 
-        $causal = Causal::create($request->all());
+        $activity = Activity::create($request->all());
         $response = [
             'message' => 'Registro creado exitosamente',
-            'causal' => $causal
+            'activity' => $activity
         ];
         return response()->json($response, Response::HTTP_CREATED);
     }
@@ -47,26 +54,27 @@ class CausalController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Causal $causal) // siempre va con causal
+    public function show(Activity $activity)
     {
-        return response()->json($causal, Response::HTTP_OK);
+        $activity->load(['technician', 'type_activity']);
+        return response()->json($activity, Response::HTTP_OK);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Causal $causal) // siempre va con causal
+    public function update(Request $request, Activity $activity)
     {
-        $data = $this->applyValidator($request , $this->rules, $this->traductionAttributes);
+        $data = $this->applyValidator($request, $this->rules, $this->traductionAttributes);
         if(!empty($data))
         {
             return $data;
         }
 
-        $causal->update($request->all());
+        $activity->update($request->all());
         $response = [
             'message' => 'Registro actualizado exitosamente',
-            'causal' => $causal
+            'activity' => $activity
         ];
         return response()->json($response, Response::HTTP_OK);
     }
@@ -74,12 +82,12 @@ class CausalController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Causal $causal) // siempre va con causal
+    public function destroy(Activity $activity)
     {
-        $causal->delete();
+        $activity->delete();
         $response = [
             'message' => 'Registro eliminado exitosamente',
-            'causal' => $causal
+            'activity' => $activity
         ];
         return response()->json($response, Response::HTTP_OK);
     }
