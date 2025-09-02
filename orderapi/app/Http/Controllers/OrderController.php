@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -22,13 +23,6 @@ class OrderController extends Controller
         'city' => 'ciudad',
         'causal_id' => 'causal',
         'observation_id' => 'observación'
-    ];
-
-    private $cities = [
-        ['name' => 'TULUA', 'value' => 'TULUA'],
-        ['name' => 'CALI', 'value' => 'CALI'],
-        ['name' => 'BUGA', 'value' => 'BUGA'],
-        ['name' => 'PALMIRA', 'value' => 'PALMIRA']
     ];
 
     /**
@@ -97,6 +91,72 @@ class OrderController extends Controller
         $response = [
             'message' => 'Registro eliminado exitosamente',
             'order' => $order
+        ];
+        return response()->json($response, Response::HTTP_OK);
+    }
+
+    /**
+     * Add an activity to an order
+     */
+    public function add_activity(string $order_id, string $activity_id)
+    {
+        $order = Order::find($order_id);
+        if(!$order)
+        {
+            $response = [
+                'errors' => 'No se encuentra la orden',
+                'data' => [$order_id, $activity_id]
+            ];
+            return response()->json($response, Response::HTTP_BAD_REQUEST);
+        }
+        $activity = Activity::find($activity_id);
+        if(!$activity)
+        {
+            $response = [
+                'errors' => 'No se encuentra la actividad',
+                'data' => [$order_id, $activity_id]
+            ];
+            return response()->json($response, Response::HTTP_BAD_REQUEST);
+        }
+
+        //delete the activity in order_activity
+        $order->activities()->attach($activity_id);
+        $response = [
+            'message' => 'Actividad agregada exitosamante',
+            'order_activity' => $order->activities
+        ];
+        return response()->json($response, Response::HTTP_OK);
+    }
+
+    /**
+     * Remove an activity to an order
+     */
+    public function remove_activity(string $order_id, string $activity_id)
+    {
+        $order = Order::find($order_id);
+        if(!$order)
+        {
+            $response = [
+                'errors' => 'No se encuentra la orden',
+                'data' => [$order_id, $activity_id]
+            ];
+            return response()->json($response, Response::HTTP_BAD_REQUEST);
+        }
+        $activity = Activity::find($activity_id);
+        if(!$activity)
+        {
+            $response = [
+                'errors' => 'No se encuentra la actividad',
+                'data' => [$order_id, $activity_id]
+            ];
+            return response()->json($response, Response::HTTP_BAD_REQUEST);
+        }
+
+        //delete the activity in order_activity
+        $order->activities()->detach($activity->id);
+        $response = [
+            'message' => 'Actividad eliminada exitosamante',
+            'order_activity' => $order->activities
         ];
         return response()->json($response, Response::HTTP_OK);
     }
